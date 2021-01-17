@@ -1,0 +1,27 @@
+version: '3.2'
+ 
+services:
+  db:
+       image: mysql:5.7
+       container_name: db
+       restart: always
+       environment:
+              MYSQL_ROOT_PASSWORD: helloworld
+       ports:
+              - "3306:3306"
+       volumes:
+              - ./db:/var/lib/mysql
+  phpmyadmin:
+       depends_on:
+              - db
+       image: phpmyadmin/phpmyadmin
+       container_name: pma
+       environment:
+              PMA_HOST: db
+              PMA_PORT: 3306
+              PMA_ARBITRARY: 1
+       restart: always
+       ports:
+              - 8081:80
+volumes:
+  db:
