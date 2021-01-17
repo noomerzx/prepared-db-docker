@@ -1,4 +1,4 @@
-# All frequently services as Docker Compose
+# All frequently use services as Docker Compose
 - mysql 5.7 + phpmyadmin
 - mysql 8 + phpmyadmin
 - postgress + pgadmin04
